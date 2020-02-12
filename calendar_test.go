@@ -52,3 +52,15 @@ func TestSpecificHoliday(t *testing.T) {
 		t.Errorf("New Years Day should be a holiday")
 	}
 }
+
+func TestDayOfMonthHoliday(t *testing.T) {
+	c := HolidayCalendar{}
+	d := date.NewDate(2020, 7, 4)
+	d2 := date.NewDate(2021, 7, 4)
+
+	c.SetDayOfMonthHoliday(7, 4)
+
+	if c.IsHoliday(d) != true || c.IsHoliday(d2) != true {
+		t.Errorf("July 4th should be a holiday")
+	}
+}
